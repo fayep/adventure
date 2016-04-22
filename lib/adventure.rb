@@ -1,7 +1,5 @@
 require 'adventure/version'
 require 'adventure/objects'
+require 'adventure/game'
+require 'adventure/actions'
 require 'adventure/content'
-
-module Adventure
-  # Your code goes here...
-end

@@ -1,0 +1,1 @@
+require 'adventure/actions/player'
