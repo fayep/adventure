@@ -1,28 +1,34 @@
 # Adventure
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/adventure`. To experiment with that code, run `bin/console` for an interactive prompt.
+The intention of this code is to provide a framework which will provide interest for more experienced attendees at
+a coding course, and allow me to have new programmers be able to add their own code easily while getting instant gratification.
 
-TODO: Delete this and the text above, and describe your gem
+The course is intended to be several weeks long, start with basic types, move on to arrays and hashes, blocks, loops, conditions
+objects, methods, testing with rspec, inheritance, mixins, metaprogramming.
+
+It runs in irb, but I'd like it to be able to be repurposed to any kind of view.
+
+>OH @grepory: Your code is ruby as f**k.
+
+It is.  My challenge will be to keep the magic out of the way of the lessons and just let it do its job.
+I would like to have rspec for each lesson so that you can get used to the concept of testing code and get feedback on whether you have
+understood the concept being taught.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'adventure'
-```
-
-And then execute:
+Execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install adventure
-
 ## Usage
 
-TODO: Write usage instructions here
+Execute:
+
+    $ irb -r bundler/setup -r adventure -r adventure/views/irb
+    IRB> Adventure::Game.instance.player.inventory
+    IRB> Adventure::Game.instance.player.look
+
+TODO: methods to implement command hierarchy.
 
 ## Development
 

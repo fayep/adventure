@@ -1,9 +1,10 @@
 module Adventure
+  # Base adventure class, everything inherits from this
   class Base
-    # Base adventure class, everything inherits from this
-    attr_reader :state, :synonyms, :contents
+    attr_reader :state, :synonyms, :contents, :id
     
-    def initialize(from_state = nil, &block)
+    def initialize(id, from_state = nil, &block)
+      @id = id
       @state = from_state || self.class.initial_state
       @synonyms = []
       @contents = []
@@ -15,6 +16,9 @@ module Adventure
         {}
       end
 
+      # It can get pretty tedious writing the same thing again and again.
+      # If you can describe it, you can code it.  This is some metaprogramming
+      # It's an advanced ruby concept.
       def dsl_verb(*args, &block)
         args.each do |a|
           if block_given?
@@ -35,10 +39,25 @@ module Adventure
       @synonyms <<= syn
     end
 
-    dsl_verb :short_description, :long_description, :is_visible?, :is_transparent?
+    dsl_verb :short_description, :long_description, :is_visible?, :is_transparent?, :location
+
+    def look(*args)
+      puts args
+    end
 
     def contains(*args)
-      args.each { |obj| @contents <<= obj }
+      args.each do |obj|
+        @contents <<= obj
+        gameobject = Game.instance.objects[obj]
+        if gameobject && gameobject.location
+          raise "#{obj} is already in #{gameobject.location}"
+        elseif gameobject
+          puts "#{gameobj}"
+          gameobject.location id
+        else
+          raise "#{obj} needs to be defined first"
+        end
+      end
     end
 
     def initially(&block)
@@ -49,8 +68,6 @@ module Adventure
     def include(mod)
       self.class.send(:include, mod)
     end
-
-
 
   end
 end

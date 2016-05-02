@@ -1,7 +1,7 @@
 module Adventure
   class Game < Base
 
-    attr_accessor :player
+    attr_reader :player, :objects
 
     def initialize(&block)
       @objects = {}
