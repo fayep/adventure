@@ -11,6 +11,7 @@ module Adventure
     def object(id, &block)
       @objects[id] = Adventure::Base.new(id, &block)
       @player = @objects[id] if id == :player
+      puts "Adding #{id} to object list"
     end
 
     class << self

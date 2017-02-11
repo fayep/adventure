@@ -59,7 +59,7 @@ module Adventure
         human inhabitant, surrounded on three and a half sides by
         partitions too high to look over.
       eodesc
-      contains :desk
+      contains :office_desk
   #    include Actions::Location
   #    add_exit out: :office_cubicle_entrance, visible: true
       initially do

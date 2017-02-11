@@ -51,8 +51,7 @@ module Adventure
         gameobject = Game.instance.objects[obj]
         if gameobject && gameobject.location
           raise "#{obj} is already in #{gameobject.location}"
-        elseif gameobject
-          puts "#{gameobj}"
+        elsif gameobject
           gameobject.location id
         else
           raise "#{obj} needs to be defined first"
