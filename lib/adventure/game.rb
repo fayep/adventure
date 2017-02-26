@@ -26,12 +26,12 @@ end
 
 @instance = Adventure::Game.instance
 
-#def method_missing(method, *args)
-#  instance = Adventure::Game.instance
+def method_missing(method, *args)
+  instance = Adventure::Game.instance
 #  puts "instance: #{instance} player: #{instance.player} method: #{method}"
-#  if instance.player.respond_to? method
-#    instance.player.send(method, *args)
-#  else
-#    super
-#  end
-#end
+  if instance.player.respond_to? method
+    instance.player.send(method, *args)
+  else
+    super
+  end
+end

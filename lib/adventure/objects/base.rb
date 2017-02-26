@@ -41,8 +41,17 @@ module Adventure
 
     dsl_verb :short_description, :long_description, :is_visible?, :is_transparent?, :location
 
-    def look(*args)
-      puts args
+    # Look around you, look around you.. just... look around you.
+    def look(*obj)
+      puts obj.inspect
+      if obj.length > 0
+        Game.instance.objects[obj.first].look
+      elsif self == Game.instance.player
+        Game.instance.objects[location].look
+      else
+        View << short_description
+        View << long_description if long_description
+      end
     end
 
     def contains(*args)

@@ -16,10 +16,6 @@ module Adventure
       # this is how we give an additional name to a method
       alias :inv :inventory
 
-      # Look around you, look around you.. just... look around you.
-      def look
-        Game.objects[self.location].look
-      end
     end
   end
 end
