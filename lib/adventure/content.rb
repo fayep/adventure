@@ -54,7 +54,7 @@ module Adventure
     end
     object :office_cubicle do
       short_description 'An office cubicle'
-      long_description <<-eodesc
+      long_description <<~eodesc
         A nondescript space just large enough for a desk, chair and
         human inhabitant, surrounded on three and a half sides by
         partitions too high to look over.

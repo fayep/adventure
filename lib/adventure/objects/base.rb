@@ -43,7 +43,7 @@ module Adventure
 
     # Look around you, look around you.. just... look around you.
     def look(*obj)
-      puts obj.inspect
+      # puts inspect
       if obj.length > 0
         Game.instance.objects[obj.first].look
       elsif self == Game.instance.player
@@ -51,6 +51,10 @@ module Adventure
       else
         View << short_description
         View << long_description if long_description
+        if contents.length
+          View << "Contents:"
+          View << contents.map {|c| Game.instance.objects[c].short_description if Game.instance.objects[c].is_visible?}.compact
+        end
       end
     end
 
